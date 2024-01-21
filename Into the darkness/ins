@@ -1,0 +1,29 @@
+import pygame, sys
+import keyboard
+import time
+from pygame.locals import *
+
+pygame.init()
+
+screen_width = 1000
+screen_height = 600
+
+# naming the game window and fonts
+screen = pygame.display.set_mode((screen_width,screen_height))
+pygame.display.set_caption('Into the Darkness')
+font = pygame.font.Font("ka1.ttf", 60)
+smallerfont= pygame.font.Font("ka1.ttf", 30)
+
+
+#where the background image will be loaded
+bg_img = pygame.image.load('menu_background.png')
+text_colour = (0, 0, 0)
+
+
+
+def inst_page():
+    inst_page_text = font.render('Instructions',True, text_colour)
+    inst_page_rect = inst_page_text.get_rect(midtop = screen.get_rect().midtop)
+    inst_page1_text = smallerfont.render('There are 6 levels in this game, each with a incresaing level of difficulty. the aim of the game is to help guide navi through the dark caves back to the comfort of his home. at the end of each sucessful level, ',True, text_colour)
+    screen.blit(bg_img, (0, 0))
+    screen.blit(inst_page_text, inst_page_rect)
